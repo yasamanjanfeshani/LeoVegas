@@ -2,6 +2,7 @@ import useFetchData from "../../hooks/useFetch"
 import { DetailMovie } from "../../api"
 import { useParams } from 'react-router-dom';
 import MovieDetail from "../../components/movieDetail";
+import Loading from "../../components/loading";
 
 const Movie = () => {
     const { movieId } = useParams<{ movieId: string }>();
@@ -10,7 +11,7 @@ const Movie = () => {
         return <p>error</p>
     }
     if (loading) {
-        return <p>isLoading...</p>
+        return <Loading />
     }
     return (
         <MovieDetail data={data} />

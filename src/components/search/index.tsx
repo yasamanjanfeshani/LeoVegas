@@ -48,7 +48,7 @@ const Search = () => {
                     placeholder='Search movies here'
                 />
                 <Link to={`/search/${debouncedQuery}`}>
-                    <StyledButton type="submit">Search</StyledButton>
+                    <StyledButton type="submit" disabled={debouncedQuery === '' ? true : false}>Search</StyledButton>
                 </Link>
             </StyledInputContainer>
             {data?.results && data?.results.length > 0 &&
