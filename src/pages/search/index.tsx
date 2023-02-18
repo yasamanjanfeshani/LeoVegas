@@ -1,4 +1,3 @@
-import ListMovies from "../../components/listMovies"
 import useFetchData from "../../hooks/useFetch"
 import { SearchMovie } from "../../api"
 import { useParams } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { StyledForm, StyledInput, StyledInputContainer, StyledButton, StyledSearchImage } from './styles'
 import SearchResult from '../searchResult';
 import useDebounce from '../../hooks/useDebounce';
@@ -9,10 +9,11 @@ import { Link } from 'react-router-dom';
 
 const Search = () => {
     const [data, setData] = useState<IPopularMovie>()
-    const [page, setPage] = useState(1)
 
     const handleSearch = () => {
-        fetchData();
+        if (debouncedQuery) {
+            fetchData();
+        }
     }
 
     const [debouncedQuery, setDebouncedQuery] = useDebounce(handleSearch, 500);
@@ -23,7 +24,7 @@ const Search = () => {
 
     const fetchData = async () => {
         try {
-            const data = await axiosHelper.get(SearchMovie(debouncedQuery, page));
+            const data = await axiosHelper.get(SearchMovie(debouncedQuery, 1));
             setData(data)
         } catch (error) {
             console.error('Failed to fetch data:', error);

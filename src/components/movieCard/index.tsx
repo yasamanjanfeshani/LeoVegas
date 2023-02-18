@@ -33,7 +33,7 @@ const MovieCard = ({ data }: IProps) => {
         } else {
             setIsFavorite(false)
         }
-    }, [favorites])
+    }, [favorites, data.id])
 
 
     const handleWatchList = (event: any) => {
@@ -49,7 +49,7 @@ const MovieCard = ({ data }: IProps) => {
         } else {
             setIsWatchList(false)
         }
-    }, [whatList])
+    }, [whatList, data.id])
 
 
 
@@ -70,6 +70,3 @@ const MovieCard = ({ data }: IProps) => {
 
 export default MovieCard
 
-function typeOf(arg0: string | null): any {
-    throw new Error('Function not implemented.')
-}
