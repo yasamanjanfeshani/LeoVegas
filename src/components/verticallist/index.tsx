@@ -6,9 +6,10 @@ interface IProps {
     data: IMovie[]
     title: string
     loadMore?: () => void
+    loading?: boolean
 }
 
-const VerticalList = ({ data, title, loadMore }: IProps) => {
+const VerticalList = ({ data, title, loadMore, loading }: IProps) => {
     return (
         <>
             <StyledTitle>{title}</StyledTitle>
@@ -19,7 +20,7 @@ const VerticalList = ({ data, title, loadMore }: IProps) => {
                 )}
             </StyledVertical>
             {loadMore &&
-                <StyledButton onClick={loadMore}>Load More</StyledButton>
+                <StyledButton onClick={loadMore}>{loading ? 'is loading...' : 'Load More'}</StyledButton>
             }
         </>
     )

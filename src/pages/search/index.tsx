@@ -9,7 +9,7 @@ const Search = () => {
     const [page, setPage] = useState(1)
     const [searchData, setSearchData] = useState<IMovie[]>([])
     const { query } = useParams<{ query: string }>();
-    const { data, loading, error } = useFetchData(SearchMovie(query, page))
+    const { data, loading, error, loadMore: loadingMore } = useFetchData(SearchMovie(query, page))
 
     useEffect(() => {
         if (data && data.results) {
@@ -31,7 +31,7 @@ const Search = () => {
         return <p>error</p>
     }
     return (
-        <VerticalList data={searchData} title={'Search List'} loadMore={loadMore} />
+        <VerticalList data={searchData} title={'Search List'} loadMore={loadMore} loading={loadingMore} />
     )
 }
 
