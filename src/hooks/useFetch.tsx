@@ -11,14 +11,13 @@ const useFetchData = (url: string) => {
         try {
             const response = await axiosHelper.get(url);
             setData(response);
-            setLoading(false);
-            setLoadMore(false)
         } catch (error: unknown) {
             if (error instanceof Error) {
                 setError(error.message);
-                setLoading(false);
-                setLoadMore(false)
             }
+        } finally {
+            setLoading(false);
+            setLoadMore(false)
         }
     };
 

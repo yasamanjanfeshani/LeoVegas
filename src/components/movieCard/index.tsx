@@ -27,6 +27,7 @@ const MovieCard = ({ data }: IProps) => {
     }
 
     useEffect(() => {
+        //for handling star to  show yellow star ot star
         //@ts-ignore
         if (favorites.findIndex((value) => value.id === data.id) !== -1) {
             setIsFavorite(true)
@@ -43,6 +44,7 @@ const MovieCard = ({ data }: IProps) => {
     }
 
     useEffect(() => {
+        //for handling watch list icon to show colorful or not
         //@ts-ignore
         if (whatList.findIndex((value) => value.id === data.id) !== -1) {
             setIsWatchList(true)
